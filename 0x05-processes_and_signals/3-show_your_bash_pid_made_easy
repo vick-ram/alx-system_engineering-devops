@@ -4,7 +4,7 @@ script_pid=$$
 bash_pids=$(pgrep -f bash)
 for pid in $bash_pids; do
     if [ "$pid" != "$script_pid" ]; then
-        process_name=$(ps -p $pid -o comm=)
+        process_name=$(ps -p "$pid" -o comm=)
         echo "$pid $process_name"
     fi
 done

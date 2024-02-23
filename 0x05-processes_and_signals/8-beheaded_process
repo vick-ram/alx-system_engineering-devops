@@ -3,5 +3,4 @@
 pid=$(pgrep -f 7-highlander)
 if [ -n "$pid" ]; then
   pkill -9 -f 7-highlander
-  echo "killed"
 fi

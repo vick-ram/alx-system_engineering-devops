@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Find the PID of the script itself Loop through the found PIDs and display them along with their process name
+script_pid=$$
+bash_pids=$(pgrep -f bash)
+for pid in $bash_pids; do
+    if [ "$pid" != "$script_pid" ]; then
+        process_name=$(ps -p $pid -o comm=)
+        echo "$pid $process_name"
+    fi
+done

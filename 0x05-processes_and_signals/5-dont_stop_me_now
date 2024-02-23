@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 #Kills the infinity process
-pid=$(pidof bash 4-to_infinity_and_beyond.sh)
-kill $pid
-kill -9 $pid
+pid=$(pgrep -f 4-to_infinity_and_beyond)
+if [ ! -z "$pid" ]; then
+	kill $pid
+else
+	kill -9 $pid
+fi

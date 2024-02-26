@@ -1,16 +1,25 @@
 #!/usr/bin/env bash
-# Script to display numbers from 1 to 20
-count=1
-while [ "$count" -le 20 ]; do
-	case "$count" in
-		5) echo "bad luck from China"
-			;;
-		10) echo "bad luck from Japan"
-			;;
-		18) echo "bad luck from Italy"
-			;;
-		*) echo "$count"
-			;;
-	esac
-		((count++))
+# Script to display 1-20 skipping 4, 9 and 16
+counter=1
+while [ $counter -le 20 ]
+do
+    case $counter in
+        4)
+            echo $counter
+            echo "bad luck from China"
+            ;;
+        9)
+            echo $counter
+            echo "bad luck from Japan"
+            ;;
+        17)
+            echo $counter
+            echo "bad luck from Italy"
+            ;;
+        *)
+            echo $counter
+            ;;
+    esac
+
+    ((counter++))
 done

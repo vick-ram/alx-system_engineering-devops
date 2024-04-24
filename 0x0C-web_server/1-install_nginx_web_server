@@ -1,36 +1,30 @@
 #!/usr/bin/env bash
 # Update package list and install nginx
 apt-get update
+
+# Install Nginx
 apt-get install -y nginx
 
-# Configure nginx to listen on port 80
+# Remove the default Nginx configuration file
+rm /etc/nginx/sites-enabled/default
+
+# Create a new Nginx configuration file
 echo "server {
     listen 80 default_server;
     listen [::]:80 default_server;
 
     root /var/www/html;
-    index index.html index.htm index.nginx-debian.html;
+    index index.html;
 
     server_name _;
 
     location / {
-        try_files $uri $uri/ =404;
-    }
-
-    location = / {
-        echo \"Hello World!\";
-	resolver 54.209.40.117
-	proxy_pass http://back-stream;
+        try_files \$uri \$uri/ =404;
     }
 }" > /etc/nginx/sites-available/default
 
-# Restart nginx without using systemctl
-kill -s HUP $(pgrep -f "nginx: master process")
+# Create a new index.html file
+echo "Hello World!" > /var/www/html/index.html
 
-# Ensure nginx is running
-if pgrep -x "nginx" >/dev/null
-then
-    echo "Nginx restarted successfully."
-else
-    echo "Failed to restart Nginx."
-fi
+# Start Nginx (without using systemctl)
+service nginx start

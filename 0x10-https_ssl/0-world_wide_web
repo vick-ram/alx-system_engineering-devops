@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Function to display subdomain info
 display_info() {
     local record_info

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Bash script o configure server to run on port 80
+nginx -t
+
+# Ensure default server block is enabled
+sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+
+# Start Nginx service
+service nginx start
+
+# Check for processes using port 80
+netstat -tuln | grep :80
+
+# Open port 80 in UFW
+ufw allow 80/tcp
+
+# Check UFW status
+ufw status
+
+# Verify Nginx is listening on port 80
+netstat -tuln | grep :80
+
+# Test connection using curl
+curl localhost:80

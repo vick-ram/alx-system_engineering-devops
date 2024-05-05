@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Allow HTTP traffic and start Nginx
+ufw allow 80/tcp
+service nginx start
+netstat -tuln | grep :80

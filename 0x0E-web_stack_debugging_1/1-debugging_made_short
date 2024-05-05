@@ -2,4 +2,4 @@
 # Allow HTTP traffic and start Nginx
 ufw allow 80/tcp
 service nginx start
-netstat -tuln | grep :80
+curl -I localhost:80

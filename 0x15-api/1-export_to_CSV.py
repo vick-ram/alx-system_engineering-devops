@@ -28,6 +28,8 @@ def export_tasks_to_csv(employee_id):
     if not user:
         print(f"User with ID {employee_id} not found.")
         return
+    else:
+        print(f"User found: {user['username']} with ID: {user['id']}")
 
     tasks = [
         task for task in todos_response.json()

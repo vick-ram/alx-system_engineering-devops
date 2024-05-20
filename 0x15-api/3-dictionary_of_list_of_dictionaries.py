@@ -39,6 +39,3 @@ def export_all_tasks_to_json():
         json.dump(tasks_by_user, json_file, indent=4)
 
     print(f"Tasks exported to {json_file_name}")
-
-
-export_all_tasks_to_json()

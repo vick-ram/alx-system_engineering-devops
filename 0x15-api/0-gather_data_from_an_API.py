@@ -4,8 +4,8 @@
 This script fetches TODO list data from a REST API
 and displays the progress for a given employee
 """
-import sys
 import requests
+import sys
 
 
 def get_employee_tasks(employee_id):

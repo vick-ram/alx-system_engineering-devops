@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Python script to export data in the json format"""
-import requests
 import json
+import requests
 import sys
 
 

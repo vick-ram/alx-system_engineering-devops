@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Script to export data in the json format"""
-import requests
 import json
+import requests
 
 
 def export_all_tasks_to_json():

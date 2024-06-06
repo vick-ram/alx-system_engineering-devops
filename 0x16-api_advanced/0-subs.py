@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""some docs"""
+"""0-subs.py module to return number of subscribers"""
 import requests
 
 
@@ -9,7 +9,11 @@ def number_of_subscribers(subreddit):
     headers = {'User-Agent': 'MyApp/0.0.1'}
 
     try:
-        response = requests.get(url, headers=headers)
+        response = requests.get(
+                        url,
+                        headers=headers,
+                        allow_redirects=False
+        )
         if response.status_code == 200:
             data = response.json()
             return data['data']['subscribers']

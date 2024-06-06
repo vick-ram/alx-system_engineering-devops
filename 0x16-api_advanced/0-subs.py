@@ -5,7 +5,7 @@ import requests
 
 def number_of_subscribers(subreddit):
     """a function that returns number f subscribers from redit"""
-    url = f'https://www.reddit.com/r/{subreddit}/about.json'
+    url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
     headers = {'User-Agent': 'MyApp/0.0.1'}
 
     try:
@@ -15,8 +15,7 @@ def number_of_subscribers(subreddit):
                         allow_redirects=False
         )
         if response.status_code == 200:
-            data = response.json()
-            return data['data']['subscribers']
+            return response.json().get("data").get("subscribers")
         else:
             return 0
     except Exception as e:
